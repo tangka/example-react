@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import * as React from 'react';
+import { Route, Switch, Redirect, HashRouter as Router } from 'react-router-dom';
 import './App.css';
+import MyIndex from './pages/Index';
+import MyPureComponent from './pages/PureComponent';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+          <Route
+            exact
+            path="/"
+            component={MyIndex}
+          />
+          <Route
+            exact
+            path="/pure"
+            component={MyPureComponent}
+          />
+          {/* <Route
+            exact
+            path="/supplier/supplierInfoSet"
+            component={SupplierInfoSet}
+          /> */}
+          <Route exact path="/404" component={() => <ErrorPage code="404" />} />
+          <Route component={() => <Redirect to="/404" />} />
+      </Switch>
+    </Router>
   );
 }
 
