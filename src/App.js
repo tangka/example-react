@@ -4,6 +4,8 @@ import './App.css';
 import MyIndex from './pages/Index';
 import MyPureComponent from './pages/PureComponent';
 import ErrorPage from './pages/ErrorPage';
+import StylePage from './pages/stylePage';
+// import FlexPage from './pages/stylePage/FlexPage';
 
 function App() {
   return (
@@ -17,12 +19,17 @@ function App() {
           <Route
             exact
             path="/pure"
-            component={MyPureComponent}
+            component={() => <MyPureComponent />}
+          />
+          <Route
+            exact
+            path="/style"
+            component={StylePage}
           />
           {/* <Route
             exact
-            path="/supplier/supplierInfoSet"
-            component={SupplierInfoSet}
+            path="/style/flex"
+            component={FlexPage}
           /> */}
           <Route exact path="/404" component={() => <ErrorPage code="404" />} />
           <Route component={() => <Redirect to="/404" />} />
