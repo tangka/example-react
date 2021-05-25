@@ -1,22 +1,56 @@
 import * as React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, HashRouter, NavLink } from 'react-router-dom';
+import { Header, NavWrapper } from '@/style';
+import ErrorPage from '../ErrorPage';
 import FlexPage from './FlexPage';
+import CenterPage from './CenterPage';
 
-export default function StylePage () {
-    return (<>
-        style页面
-        <Route
-          exact
-          path="/style/flex"
-          component={FlexPage}
-        />
-        <Route component={() => <Redirect to="/404" />} />
-        {/* <Route component={() => <Redirect to="/404" />} /> */}
-        {/* <Route
-          exact
-          path="/supplier/supplierInfoSet"
-          component={SupplierInfoSet}
-        /> */}
-        {/* <Route component={() => <Redirect to="/style/flex" />} /> */}
+function LinkWrapper(props) {
+  return <NavWrapper><NavLink exact to={props.to}>
+    {props.content}
+  </NavLink>
+  </NavWrapper>
+};
+
+const styleNavList = [
+  {
+    to: '/style/flex',
+    content: 'To Flex',
+    component: FlexPage,
+  },
+  {
+    to: '/style/center',
+    content: '垂直居中',
+    component: CenterPage,
+  },
+];
+
+
+
+export default function StylePage() {
+  return (<>
+    <HashRouter>
+      <div>
+        <Header>
+          style页面
+        </Header>
+        {
+          styleNavList.map(
+            nav => <LinkWrapper to={nav.to} content={nav.content} key={nav.to} />
+          )
+        }
+        <Switch>
+          {
+            styleNavList.map(
+              nav => <Route
+                exact
+                path={nav.to}
+                component={nav.component}
+              />
+            )
+          }
+          <Route component={ErrorPage} />
+        </Switch>
+      </div></HashRouter>
   </>)
-} 
+}

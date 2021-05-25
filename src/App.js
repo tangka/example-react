@@ -22,7 +22,6 @@ function App() {
             component={() => <MyPureComponent />}
           />
           <Route
-            exact
             path="/style"
             component={StylePage}
           />
