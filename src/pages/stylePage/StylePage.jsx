@@ -34,6 +34,13 @@ export default function StylePage() {
         <Header>
           style页面
         </Header>
+        回流与重绘；
+        回流改变layout布局 必定重绘
+
+        不影响回流的。  脱离文档流 position transform transforms 和 opacity。
+
+        display:none 会触发 reflow（回流）
+        visibility:hidden 只会触发 repaint（重绘），因为没有发现位置变化
         {
           styleNavList.map(
             nav => <LinkWrapper to={nav.to} content={nav.content} key={nav.to} />

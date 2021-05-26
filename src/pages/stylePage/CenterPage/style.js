@@ -4,53 +4,31 @@ const CenterWrapper = styled.div`
     width: 200px;
     height: 200px;
     background-color: aqua;
-    display: flex;
-    /* flex-direction: row-reverse;
-    flex-wrap: wrap; */
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    
-    /* align-content: space-around;
-    align-items: center; */
-    &.items {
+    &.flex {
+        display: flex;
+        justify-content: center;
         align-items: center;
-    }
-    &.content {
-        align-content: center;
-    }
-    &.around {
-        align-content: space-around;
-    }
-    &.baseline {
-        align-items: baseline;
-    }
-    &.center {
-        justify-content: space-around;
-        align-content: center;
-    }
-    &.flexGrow {
-        flex-wrap: nowrap;
-        div {
-            width: 100px;
-            flex: 1 1 auto;
-        }
-        .flex1 {
-            width: 100px;
-            flex: 2 0 auto;
-        }
     }
     div {
         width: 50px;
         height: 20px; 
         background-color: beige;
-        margin-right: 5px;
     }
-    .h30 {
-        height: 30px; 
+    &.position {
+        position: relative;
+        div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
-    .f30 {
-        font-size: 30px;
-        height: 50px; 
+    &.table {
+        display: table;
+        div {
+            display: table-cell;
+            vertical-align: middle;
+        }
     }
 `;
 
