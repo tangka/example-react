@@ -5,7 +5,7 @@ import MyIndex from './pages/Index';
 import MyPureComponent from './pages/PureComponent';
 import ErrorPage from './pages/ErrorPage';
 import StylePage from './pages/stylePage';
-// import FlexPage from './pages/stylePage/FlexPage';
+import HOC from './pages/Hoc';
 
 function App() {
   return (
@@ -15,6 +15,11 @@ function App() {
             exact
             path="/"
             component={MyIndex}
+          />
+           <Route
+            exact
+            path="/"
+            component={HOC}
           />
           <Route
             exact
