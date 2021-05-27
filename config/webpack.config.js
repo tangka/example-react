@@ -229,7 +229,10 @@ module.exports = function (webpackEnv) {
       // module chunks which are built will work in web workers as well.
       globalObject: 'this',
     },
+    // 代码压缩属性
     optimization: {
+      splitChunks: {
+      },
       minimize: isEnvProduction,
       minimizer: [
         // This is only used in production mode
