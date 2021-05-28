@@ -44,7 +44,25 @@ const routerList = {
     }
 }
 
+const mainRouter = [{
+    to: '/hook',
+    content: 'To Hook',
+}, {
+    to: '/style',
+    content: 'To Style',
+}, {
+    to: '/hoc',
+    content: 'To HOC',
+}, {
+    to: '/pure',
+    content: 'To Pure',
+},{
+    to: '/context',
+    content: 'To Context'
+}]
+
 
 export {
     routerList,
+    mainRouter,
 }

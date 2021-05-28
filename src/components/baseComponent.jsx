@@ -3,7 +3,7 @@ import { Route, Switch, HashRouter, NavLink } from 'react-router-dom';
 import { Header, NavWrapper } from '@/style';
 import ErrorPage from '../pages/ErrorPage';
 
-function LinkWrapper(props) {
+export function LinkWrapper(props) {
     return <NavWrapper><NavLink exact to={props.to}>
         {props.content}
     </NavLink>

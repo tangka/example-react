@@ -7,6 +7,7 @@ import ErrorPage from './pages/ErrorPage';
 import HOC from './pages/Hoc';
 import { routerList } from './const';
 import Base from '../src/components/baseComponent';
+import Context from './pages/HookPage/useContext';
 
 function App() {
   return (
@@ -22,7 +23,12 @@ function App() {
           path="/hoc"
           component={HOC}
         />
-          <Route
+         <Route
+          exact
+          path="/context"
+          component={() => <Context />}
+        />
+        <Route
           exact
           path="/pure"
           component={() => <MyPureComponent />}
