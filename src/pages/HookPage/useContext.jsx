@@ -5,7 +5,7 @@ const Context = () => {
     return <div>
         <div>
         </div>
-        <button>play</button>
+        <button>Context</button>
     </div>
 }
 export default withTodo(true)(Context);
