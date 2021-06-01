@@ -8,6 +8,7 @@ import HOC from './pages/Hoc';
 import { routerList } from './const';
 import Base from '../src/components/baseComponent';
 import Context from './pages/HookPage/useContext';
+import MyRef from './pages/HookPage/useRef';
 
 function App() {
   return (
@@ -23,10 +24,15 @@ function App() {
           path="/hoc"
           component={HOC}
         />
-         <Route
+        <Route
           exact
           path="/context"
           component={() => <Context />}
+        />
+        <Route
+          exact
+          path="/ref"
+          component={() => <MyRef />}
         />
         <Route
           exact
@@ -37,7 +43,7 @@ function App() {
           path="/style"
           component={() => <Base data={routerList.style} />}
         />
-         <Route
+        <Route
           path="/hook"
           component={() => <Base data={routerList.hook} />}
         />
