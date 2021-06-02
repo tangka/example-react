@@ -2,6 +2,13 @@ import Animation from "./pages/HookPage/useAnimtion";
 import Request from "./pages/HookPage/useRequst";
 import CenterPage from "./pages/stylePage/CenterPage";
 import FlexPage from "./pages/stylePage/FlexPage";
+import Context from './pages/HookPage/useContext';
+import MyRef from './pages/HookPage/useRef';
+import Base from "./components/baseComponent";
+import HOC from "./pages/Hoc";
+import MyPureComponent from "./pages/PureComponent";
+import MyIndex from "./pages/Index";
+import ErrorPage from "./pages/ErrorPage";
 
 const routerList = {
     style: {
@@ -38,31 +45,55 @@ const routerList = {
                 content: 'To Animation',
                 component: Animation,
             },
+            {
+                to: '/hook/useContext',
+                content: 'To Context',
+                component: Context,
+            },
+            {
+                to: '/hook/useRef',
+                content: 'To Ref',
+                component: MyRef,
+            },
         ],
         title: 'hooks页面',
         content: ``,
     }
 }
 
-const mainRouter = [{
-    to: '/hook',
-    content: 'To Hook',
-}, {
-    to: '/style',
-    content: 'To Style',
-}, {
-    to: '/hoc',
-    content: 'To HOC',
-}, {
-    to: '/pure',
-    content: 'To Pure',
-},{
-    to: '/context',
-    content: 'To Context'
-},{
-    to: '/ref',
-    content: 'To Ref'
-}]
+const mainRouter = [
+    {
+        to: '/',
+        content: 'To Index',
+        component: MyIndex,
+        exact: true,
+    }, {
+        to: '/hook',
+        content: 'To Hook',
+        component: () => <Base data={routerList.hook} />,
+        exact: false,
+    }, {
+        to: '/style',
+        content: 'To Style',
+        component: () => <Base data={routerList.style} />,
+        exact: false,
+    }, {
+        to: '/hoc',
+        content: 'To HOC',
+        component: HOC,
+        exact: true,
+    }, {
+        to: '/pure',
+        content: 'To Pure',
+        component: () => <MyPureComponent />,
+        exact: true,
+    }, {
+        to: '/404',
+        content: '404',
+        component: () => <ErrorPage code="404" />,
+        exact: true,
+    }
+]
 
 
 export {
