@@ -12,6 +12,7 @@ function App() {
             exact={item.exact}
             path={item.to}
             component={item.component}
+            key={item.to}
           />)
         }
         <Route component={() => <Redirect to="/404" />} />

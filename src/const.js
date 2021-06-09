@@ -9,6 +9,7 @@ import HOC from "./pages/Hoc";
 import MyPureComponent from "./pages/PureComponent";
 import MyIndex from "./pages/Index";
 import ErrorPage from "./pages/ErrorPage";
+import Fiber from "./pages/Fiber";
 
 const routerList = {
     style: {
@@ -88,6 +89,12 @@ const mainRouter = [
         component: () => <MyPureComponent />,
         exact: true,
     }, {
+        to: '/fiber',
+        content: 'To Fiber',
+        component: () => <Fiber />,
+        exact: true,
+    }
+    , {
         to: '/404',
         content: '404',
         component: () => <ErrorPage code="404" />,

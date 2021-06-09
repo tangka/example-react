@@ -13,6 +13,9 @@ const withTodo = (isTodo) => {
     }
     return (Target) => {
         return class Proxy extends React.Component {
+            componentDidMount() {
+                console.log(this);
+            }
             render() {
                 return <Target />
             }
