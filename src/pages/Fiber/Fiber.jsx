@@ -149,3 +149,48 @@ workInProgess 表示当前正在更新的fiber树，current树表示上一次更
  事件执行 => js执行(定时器是否到时间) => Begin Frame（开始帧）=> requestAnimationFrame 动画帧 =>  布局 => 绘制 => requestIdleCallback 
 
 */
+
+
+/* 
+    闭包的概念 有权访问另一个函数作用域中变量的函数
+
+    模仿块级作用域 
+
+    私有变量
+
+    模块化的运用（webpack打包时的运用）
+
+*/
+/* 
+a={
+    name: 'SS'
+}
+
+// 模块作用域
+
+作用域封装
+重用性
+解除耦合
+
+(function(window) {
+    var name = 'ss';
+    function tell() {
+            return name
+    }
+    window.Module = {tell}
+})(window)
+// 私有变量不能暴露
+*/
+
+/* 
+proxy pro k si
+
+new Proxy({
+    a:'1'
+},{
+    get:function(obj,props) {
+        return 1;
+    }
+})
+
+*/
