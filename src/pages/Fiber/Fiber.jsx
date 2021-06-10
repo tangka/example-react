@@ -194,3 +194,40 @@ new Proxy({
 })
 
 */
+
+/* 
+强缓存与协商缓存
+
+按缓存策略分 强缓存 协议缓存
+
+浏览器 =》 有无缓存 =》 过期时间，是否过期（expires 和 Cache-Control) => Etag (key值 IF-NONE-MATCH) =>  Last-Modified(key值为 IF-Modified-Since)
+
+e ki s bai er s 
+expires 绝对时间 http1.0
+
+Cache-Control 相对时间 max-age=1000 http1.1
+
+Cache-Control 优先级高于 expires
+
+ETag 由上一次请求的 唯一表示
+
+Last-Modified 绝对时间 最后修改时间
+
+既生Last-Modified何生Etag
+
+周期性修改导致Last-Modified变，内容没变
+
+些服务器不能精确的得到文件的最后修改时间。
+
+缓存可以从 memory catch 内存拿
+也可以从 disk catch 硬盘拿
+*/
+
+/* 
+setState
+
+1. 只有 setState 在钩子函数 和 合成事件 里面才表现出 ’异步‘ ，因为这两种情况 在 state 更新前被调用的
+
+2. 多次调用 用了 Object.assign 合并
+
+*/
