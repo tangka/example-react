@@ -10,6 +10,7 @@ import MyPureComponent from "./pages/PureComponent";
 import MyIndex from "./pages/Index";
 import ErrorPage from "./pages/ErrorPage";
 import Fiber from "./pages/Fiber";
+import BtnGroup from "./pages/BtnGroup";
 
 const routerList = {
     style: {
@@ -92,6 +93,11 @@ const mainRouter = [
         to: '/fiber',
         content: 'To Fiber',
         component: () => <Fiber />,
+        exact: true,
+    },{
+        to: '/btn',
+        content: 'To btnGroup',
+        component: () => <BtnGroup />,
         exact: true,
     }
     , {

@@ -226,9 +226,29 @@ Last-Modified 绝对时间 最后修改时间
 /* 
 setState
 
-1. 只有 setState 在钩子函数 和 合成事件 里面才表现出 ’异步‘ ，因为这两种情况 在 state 更新前被调用的
+1. 只有 setState 在 钩子函数 和 合成事件 里面才表现出 ’异步‘ ，因为这两种情况 在 state 更新前被调用的
 
 2. 多次调用 用了 Object.assign 合并
 
 
+*/
+/* 
+ useState 为啥用数组。方便 结构 方便 命名
+
+useState为啥不能有判断循环  因为 会打乱原先的链表顺序，可能会获取错误的缓存值
+
+*/
+
+/* 
+ WeakSet WeakMap 只接受对象为key值 且为弱引用 不会影响垃圾回收机制
+
+ do 
+
+ var sym1 = Symbol.for('ConardLi');
+var sym2 = Symbol.for('ConardLi');
+console.log(sym1 === sym2); // true
+*/
+
+/* 
+    箭头函数 和 普通函数的   箭头函数 没有 prototype
 */
