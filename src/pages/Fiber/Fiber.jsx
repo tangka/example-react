@@ -252,3 +252,9 @@ console.log(sym1 === sym2); // true
 /* 
     箭头函数 和 普通函数的   箭头函数 没有 prototype
 */
+
+/* 
+bfc
+
+
+*/
