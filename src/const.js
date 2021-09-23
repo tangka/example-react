@@ -11,6 +11,8 @@ import MyIndex from "./pages/Index";
 import ErrorPage from "./pages/ErrorPage";
 import Fiber from "./pages/Fiber";
 import BtnGroup from "./pages/BtnGroup";
+import MyState from "src/pages/HookPage/useState";
+import HookPage from 'src/pages/HookPage';
 
 const routerList = {
     style: {
@@ -38,6 +40,11 @@ const routerList = {
     hook: {
         navList: [
             {
+                to: '/hook',
+                content: '刷新',
+                component: HookPage,
+            },
+            {
                 to: '/hook/useRequest',
                 content: 'To Request',
                 component: Request,
@@ -56,6 +63,11 @@ const routerList = {
                 to: '/hook/useRef',
                 content: 'To Ref',
                 component: MyRef,
+            },
+            {
+                to: '/hook/useState',
+                content: 'To State',
+                component: MyState,
             },
         ],
         title: 'hooks页面',

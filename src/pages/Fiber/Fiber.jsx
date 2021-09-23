@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import ErrorBoundary from './getDeviredStateFromError'
 import img from './fiber.image';
 
 
@@ -51,7 +52,7 @@ class FiberNode4 extends React.Component {
     }
     render() {
         console.log('FiberNode4 Render')
-        return <div>FiberNode4</div>
+        return <div>FiberNode4{this.state.b}</div>
     }
 }
 
@@ -76,9 +77,12 @@ export default class Fiber extends React.Component {
     }
 
     render() {
-        return <><FiberNode1 data={this.state.a} />
+        return <ErrorBoundary> 
+            <FiberNode1 data={this.state.a} />
         <img src={img} alt="" />
-        {this.state.a === '2' ? <FiberNode2 data={this.state.a}  /> : null }</>
+        {this.state.a.b.c === '2' ?
+          <FiberNode2 data={this.state.b}  /> : null }
+         </ErrorBoundary>
     }
 }
 

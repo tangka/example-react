@@ -1,3 +1,3 @@
-import BtnGroup from './BtnGroup.tsx';
+import BtnGroup from './BtnGroup';
 
 export default BtnGroup;

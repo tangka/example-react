@@ -4,7 +4,7 @@ import * as Styled from './style';
 export default function CenterPage() {
     return (
         <>
-        高度，宽度未知情况
+            高度，宽度未知情况
             <Styled.ContentWrapper>
                 <Styled.Remark>
                     flex<br />
@@ -42,3 +42,4 @@ export default function CenterPage() {
         </>
     )
 }
+

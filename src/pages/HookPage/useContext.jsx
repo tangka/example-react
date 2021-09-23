@@ -42,6 +42,7 @@ const Child = () => {
 }
 
 const Context = () => {
+    console.log('context')
     const [count, setCount] = React.useState(0)
     return <Provider value={{
         value: count,
