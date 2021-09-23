@@ -13,6 +13,7 @@ import Fiber from "./pages/Fiber";
 import BtnGroup from "./pages/BtnGroup";
 import MyState from "src/pages/HookPage/useState";
 import HookPage from 'src/pages/HookPage';
+import ProfilePage from "src/pages/Concurrent";
 
 const routerList = {
     style: {
@@ -106,13 +107,17 @@ const mainRouter = [
         content: 'To Fiber',
         component: () => <Fiber />,
         exact: true,
-    },{
+    }, {
         to: '/btn',
         content: 'To btnGroup',
         component: () => <BtnGroup />,
         exact: true,
-    }
-    , {
+    }, {
+        to: '/concurrentMode',
+        content: '并发模式',
+        component: () => <ProfilePage />,
+        exact: true,
+    }, {
         to: '/404',
         content: '404',
         component: () => <ErrorPage code="404" />,
