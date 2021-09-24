@@ -1,41 +1,54 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useTransition } from "react";
 import { fetchProfileData } from "./fakeApi";
 
-function getNextId(id) {
-  return id === 3 ? 0 : id + 1;
-}
+const initialResource = fetchProfileData();
 
-const initialResource = fetchProfileData(0);
+function Button({ children, onClick }) {
+  const [
+    isPending,
+    startTransition,
+  ] = useTransition({
+    timeoutMs: 100
+  });
 
-function App() {
-  const [resource, setResource] = useState(
-    initialResource
-  );
+  function handleClick() {
+    startTransition(() => {
+      onClick();
+    });
+  }
+
+  console.log(isPending);
+
   return (
     <>
       <button
-        onClick={() => {
-          const nextUserId = getNextId(
-            resource.userId
-          );
-          setResource(
-            fetchProfileData(nextUserId)
-          );
-        }}
+        onClick={handleClick}
+        disabled={isPending}
       >
-        Next
+        {children}
       </button>
-      <ProfilePage resource={resource} />
+      {isPending ? 'loading...' + isPending : null}
     </>
   );
 }
 
-function ProfilePage({ resource }) {
+function ProfilePage() {
+  const [resource, setResource] = useState(
+    initialResource
+  );
+
+  function handleRefreshClick() {
+    setResource(fetchProfileData());
+  }
+
   return (
     <Suspense
       fallback={<h1>Loading profile...</h1>}
     >
       <ProfileDetails resource={resource} />
+      <Button onClick={handleRefreshClick}>
+        Refresh
+      </Button>
       <Suspense
         fallback={<h1>Loading posts...</h1>}
       >
@@ -62,4 +75,4 @@ function ProfileTimeline({ resource }) {
 }
 
 
-export default App;
+export default ProfilePage;
